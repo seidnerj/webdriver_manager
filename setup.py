@@ -49,7 +49,7 @@ setuptools.setup(
         'requests',
         'python-dotenv',
         'arpy',
-        'zstandard'
+        'zstandard',
         'packaging',
     ],
     package_data={
