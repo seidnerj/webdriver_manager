@@ -25,6 +25,7 @@ class Driver(object):
         self._browser_version = None
         self._driver_to_download_version = None
         self._download_url_template = download_url_template if download_url_template is not None else "{url}/{version}/{name}_{os_type}.zip"
+        self._custom_download_url_template_in_use = download_url_template is not None
 
     @property
     def auth_header(self):

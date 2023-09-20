@@ -52,9 +52,10 @@ class ChromeDriver(Driver):
             if os_type in ["mac_64", "mac64_m1", "mac_arm64"]:
                 os_type = "mac-arm64"
 
-            modern_version_url = self.get_url_for_version_and_platform(driver_version_to_download, os_type)
-            log(f"Modern chrome version {modern_version_url}")
-            return modern_version_url
+            if not self._custom_download_url_template_in_use:
+                modern_version_url = self.get_url_for_version_and_platform(driver_version_to_download, os_type)
+                log(f"Modern chrome version {modern_version_url}")
+                return modern_version_url
 
         return self._download_url_template.format(url=self._url,
                                                   version=driver_version_to_download,
